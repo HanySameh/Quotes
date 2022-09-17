@@ -18,9 +18,10 @@ class QuoteContent extends StatelessWidget {
       child: Column(
         children: [
           Text(
-              'quote.content h h  hh h h h h  hh h h h h h h h h h h h h hh hh h h h h h h fuck you',
-              textAlign: TextAlign.center,
-              style: Theme.of(context).textTheme.bodyMedium),
+            'quote.content h h  hh h h h h  hh h h h h h h h h h h h h hh hh h h h h h h fuck you',
+            textAlign: TextAlign.center,
+            style: Theme.of(context).textTheme.bodyMedium,
+          ),
           Container(
             margin: const EdgeInsets.symmetric(vertical: 15),
             child: Text(
