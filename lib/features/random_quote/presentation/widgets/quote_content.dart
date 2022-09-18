@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:quotes/features/random_quote/domain/entities/quote.dart';
 
 import '../../../../core/utilities/app_colors.dart';
 
 class QuoteContent extends StatelessWidget {
-  // final Quote quote;
-  const QuoteContent({Key? key}) : super(key: key);
+  final Quote quote;
+  const QuoteContent({Key? key, required this.quote}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -18,14 +19,14 @@ class QuoteContent extends StatelessWidget {
       child: Column(
         children: [
           Text(
-            'quote.content h h  hh h h h h  hh h h h h h h h h h h h h hh hh h h h h h h fuck you',
+            quote.content,
             textAlign: TextAlign.center,
             style: Theme.of(context).textTheme.bodyMedium,
           ),
           Container(
             margin: const EdgeInsets.symmetric(vertical: 15),
             child: Text(
-              'quote.author',
+              quote.author,
               style: Theme.of(context).textTheme.bodyMedium,
             ),
           ),
