@@ -1,7 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+
 import 'package:quotes/features/random_quote/presentation/screens/quote_screen.dart';
+import 'package:quotes/injection_container.dart' as di;
 
 import '../../core/utilities/app_strings.dart';
+import '../../features/random_quote/presentation/cubit/random_quote_cubit.dart';
 import '../../features/splash/presentation/screens/splash_screen.dart';
 
 class Routes {
@@ -18,13 +22,13 @@ class AppRoutes {
             return const SplashScreen();
           },
         );
-
       case Routes.randomQuoteRoute:
-        return MaterialPageRoute(
-          builder: (context) {
-            return const QuoteScreen();
-          },
-        );
+        return MaterialPageRoute(builder: ((context) {
+          return BlocProvider(
+            create: ((context) => di.sl<RandomQuoteCubit>()),
+            child: const QuoteScreen(),
+          );
+        }));
       default:
         return undefinedRoute();
     }

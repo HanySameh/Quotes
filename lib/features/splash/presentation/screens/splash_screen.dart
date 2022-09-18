@@ -1,6 +1,7 @@
 import 'dart:async';
 
 import 'package:flutter/material.dart';
+import 'package:quotes/core/utilities/app_colors.dart';
 
 import '../../../../config/routes/app_routes.dart';
 
@@ -36,10 +37,13 @@ class _SplashScreenState extends State<SplashScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: Center(
-        child: Container(
-          width: 200.0,
-          height: 200.0,
-          color: Colors.red,
+        child: Text(
+          'Quote',
+          style: TextStyle(
+            fontSize: 40.0,
+            fontWeight: FontWeight.bold,
+            color: AppColors.primary,
+          ),
         ),
       ),
     );
