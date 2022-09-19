@@ -3,11 +3,14 @@ import 'dart:io';
 
 import 'package:dio/adapter.dart';
 import 'package:dio/dio.dart';
+import 'package:flutter/foundation.dart';
 import 'package:quotes/core/api/status_code.dart';
 
 import '../errors/exceptions.dart';
 import 'api_consumer.dart';
+import 'app_interceptors.dart';
 import 'end_points.dart';
+import 'package:quotes/injection_container.dart' as di;
 
 class DioConsumer implements ApiConsumer {
   final Dio client;
@@ -27,10 +30,10 @@ class DioConsumer implements ApiConsumer {
       ..validateStatus = (status) {
         return status! < StatusCode.internalServerError;
       };
-    // client.interceptors.add(di.sl<AppIntercepters>());
-    // if (kDebugMode) {
-    //   client.interceptors.add(di.sl<LogInterceptor>());
-    // }
+    client.interceptors.add(di.sl<AppIntercepters>());
+    if (kDebugMode) {
+      client.interceptors.add(di.sl<LogInterceptor>());
+    }
   }
 
   @override
